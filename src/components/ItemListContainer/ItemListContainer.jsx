@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react"
-import { obtenerProductos, getCategorias } from "../../asyncmock"
+import { obtenerUnProducto, getProductosPorCategoria, getProductos } from "../../asyncmock"
 import ItemList from "../ItemList/ItemList"
 import { useParams, useSearchParams } from "react-router-dom"
 
@@ -11,7 +11,7 @@ const ItemDetailContainar = ({greeting}) => {
 
      useEffect(() => {
 
-        const funcionProductos = idCategoria ? getCategorias : obtenerProductos;
+        const funcionProductos = idCategoria ? getCategorias : getProductos;
 
         funcionProductos(idCategoria)
         .then(res => setProductos(res))
